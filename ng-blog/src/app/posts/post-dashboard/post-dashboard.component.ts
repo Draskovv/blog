@@ -25,7 +25,7 @@ export class PostDashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  createPost(){
+  createPost() {
     const data = {
       author: this.auth.authState.displayName || this.auth.authState.email,
       authorId: this.auth.currentUserId,
@@ -38,24 +38,24 @@ export class PostDashboardComponent implements OnInit {
     this.title = '';
     this.content = '';
     this.buttonText = "Post Created!";
-    setTimeout(()=> this.buttonText = "Create Post" , 3000);
+    setTimeout(() => this.buttonText = "Create Post", 3000);
   }
 
-  uploadImage(event){
-    const file = event.target.files[0];
-    const path = `posts/${file.name}`;
-    
+  uploadImage(event) {
 
-    if(file.type.split('/')[0] !== 'image'){
-      return alert("only image files")
-    }
-    else
-    {
-      const task = this.storage.upload(path, file);
-      const ref = this.storage.ref(path)
-      this.downloadURL = ref.getDownloadURL();
-      this.uploadPercent = task.percentageChanges();
-      this.downloadURL.subscribe(url => this.image = url);
+    const file = event.target.files[0];
+    const filePath = `posts/${file.name}`;
+
+    if (file.type.split('/')[0] !== "image")
+      return alert("Only image files");
+    else {
+      const task = this.storage.upload(filePath, file).then(() => {
+        const ref = this.storage.ref(filePath);
+        const downloadURL = ref.getDownloadURL().subscribe(url => {
+          const Url = url; // for ts
+          this.image = url; // with this you can use it in the html
+        })
+      });
     }
   }
 

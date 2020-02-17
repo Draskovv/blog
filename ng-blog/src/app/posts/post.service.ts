@@ -30,7 +30,7 @@ export class PostService{
     }
 
     getPostData(id: string){
-        this.postDoc = this.afs.doc<Post>(`post/${id}`);
+        this.postDoc = this.afs.doc<Post>(`posts/${id}`);
         return this.postDoc.valueChanges();
     }
 
