@@ -44,6 +44,7 @@ export class PostDashboardComponent implements OnInit {
   uploadImage(event){
     const file = event.target.files[0];
     const path = `posts/${file.name}`;
+    
 
     if(file.type.split('/')[0] !== 'image'){
       return alert("only image files")
@@ -51,7 +52,8 @@ export class PostDashboardComponent implements OnInit {
     else
     {
       const task = this.storage.upload(path, file);
-      this.downloadURL = task.downloadURL();
+      const ref = this.storage.ref(path)
+      this.downloadURL = ref.getDownloadURL();
       this.uploadPercent = task.percentageChanges();
       this.downloadURL.subscribe(url => this.image = url);
     }
