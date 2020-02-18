@@ -17,5 +17,5 @@
         <textarea matInput placeholder="Post Content" [(ngModel)]="content" rows="10"></textarea>
     </mat-form-field>
     <mat-divider></mat-divider>
-    <button mat-raised-button color="accent" (click)="createPost()" [disabled]="!title || !content">{{buttonText}}</button>
+    <button mat-raised-button color="accent" (click)="createPost()" [disabled]="!title || !content || !image">{{buttonText}}</button>
 </section>
