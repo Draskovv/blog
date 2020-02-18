@@ -61,7 +61,6 @@ export class PostDashboardComponent implements OnInit {
         
       });
       
-      this.uploadPercent = task.percentageChanges()
 
     }
   }
