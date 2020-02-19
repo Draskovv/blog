@@ -20,7 +20,6 @@ export class PostListComponent implements OnInit {
     this.posts = this.postsService.getPosts();
   }
   
-
   delete(id: string)
   {
     this.postsService.delete(id);

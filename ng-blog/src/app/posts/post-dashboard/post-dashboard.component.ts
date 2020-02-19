@@ -30,7 +30,6 @@ export class PostDashboardComponent implements OnInit {
   }
 
   createPost() {
-  
     const data = {
       author: this.auth.authState.displayName || this.auth.authState.email,
       authorId: this.auth.currentUserId,
