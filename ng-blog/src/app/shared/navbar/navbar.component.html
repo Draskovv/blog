@@ -3,6 +3,7 @@
         <span routerLink="/blog">Danny's blog</span>
         <span class="spacer"></span>
         <div *ngIf="auth.afAuth.authState | async as user; else showLogin">
+            <button mat-raised-button color="accent" routerLink="/my-posts">My posts</button>
             <button mat-raised-button color="accent" routerLink="/dashboard">Write a Post</button>
             <button mat-raised-button color="accent" routerLink="/about">About</button>
             <button mat-button (click)="auth.logout()">Logout</button>

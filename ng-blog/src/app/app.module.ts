@@ -17,7 +17,8 @@ import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/blog', pathMatch: 'full'},
-  {path: '',loadChildren: './posts/posts.module#PostsModule'}
+  {path: '',loadChildren: './posts/posts.module#PostsModule'},
+  {path: 'my-posts/:id', redirectTo: 'blog/:id', pathMatch: 'full'}
 ]
 
 @NgModule({

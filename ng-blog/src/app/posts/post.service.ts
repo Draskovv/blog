@@ -6,7 +6,8 @@ import {
 } from 'angularfire2/firestore';
 
 import { Post } from './post';
-import { map} from 'rxjs/operators';
+import { map, filter} from 'rxjs/operators';
+import { AuthService } from '../core/auth.service';
 
 @Injectable()
 export class PostService {
@@ -14,7 +15,7 @@ export class PostService {
     postsCollection: AngularFirestoreCollection<Post>;
     postDoc: AngularFirestoreDocument<Post>;
 
-    constructor(private afs: AngularFirestore) {
+    constructor(private afs: AngularFirestore, private auth: AuthService) {
         this.postsCollection = this.afs.collection('posts', ref => ref.orderBy('published', 'desc'));
     }
 
@@ -28,7 +29,15 @@ export class PostService {
             }));
     }
 
-    
+    getMyPosts(){
+        return this.postsCollection.snapshotChanges().pipe(map(actions => {
+            return actions.filter(x=> x.payload.doc.data().authorId == this.auth.currentUserId).map(a => {
+                const data = a.payload.doc.data() as Post
+                const id = a.payload.doc.id
+                return { id, ...data }
+            })
+        }));
+    }
 
     getPostData(id: string) {
         this.postDoc = this.afs.doc<Post>(`posts/${id}`);

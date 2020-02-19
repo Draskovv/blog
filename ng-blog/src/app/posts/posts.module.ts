@@ -6,15 +6,17 @@ import { PostListComponent } from './post-list/post-list.component';
 import { PostService } from './post.service';
 import { SharedModule } from '../shared/shared.module';
 import { AboutComponent } from '../about/about.component';
+import { MyPostsComponent } from './my-posts/my-posts.component';
 
 const routes: Routes = [
   {path: 'blog', component: PostListComponent},
   {path: 'blog/:id', component: PostDetailComponent},
   {path: 'dashboard', component: PostDashboardComponent},
-  {path: 'about' , component: AboutComponent}
+  {path: 'about' , component: AboutComponent},
+  {path: 'my-posts' , component: MyPostsComponent}
 ]
 @NgModule({
-  declarations: [PostDashboardComponent, PostDetailComponent, PostListComponent],
+  declarations: [PostDashboardComponent, PostDetailComponent, PostListComponent, MyPostsComponent],
   imports: [
    SharedModule , RouterModule.forChild(routes)
   ],
