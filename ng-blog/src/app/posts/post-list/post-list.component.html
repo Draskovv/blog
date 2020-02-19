@@ -1,5 +1,5 @@
 <section>
-    <mat-card *ngFor="let post of posts | async">
+    <mat-card *ngFor="let post of posts | async" class="{{post.type}}">
         <mat-card-content routerLink="{{post.id}}">
             <img src="{{post.image}}" alt="{{post.title}}">
             <h2>{{post.title}}</h2>

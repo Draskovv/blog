@@ -12,9 +12,12 @@ import { AngularFireStorage } from 'angularfire2/storage';
 })
 export class PostDashboardComponent implements OnInit {
 
+  types: string[] = ['Dessert', 'Main', 'Salad'];
+
   title: string;
   image: string = null;
   content: string;
+  favType: string;
 
   buttonText: string = "Create Post";
 
@@ -27,13 +30,15 @@ export class PostDashboardComponent implements OnInit {
   }
 
   createPost() {
+  
     const data = {
       author: this.auth.authState.displayName || this.auth.authState.email,
       authorId: this.auth.currentUserId,
       content: this.content,
       image: this.image,
       published: new Date(),
-      title: this.title
+      title: this.title,
+      type: this.favType
     }
     this.postService.create(data);
     this.title = '';

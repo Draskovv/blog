@@ -9,6 +9,16 @@
         </div>
     </div>
     <mat-divider></mat-divider>
+    <div>
+        <label id="example-radio-group-label">Type</label>
+        <mat-divider></mat-divider>
+        <mat-radio-group class="radio-group" [(ngModel)]="favType">
+            <mat-radio-button class="radio-button" value="dessert">Dessert</mat-radio-button>
+            <mat-radio-button class="radio-button" value="main">Main</mat-radio-button>
+            <mat-radio-button class="radio-button" value="salad">Salad</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <mat-divider></mat-divider>
     <mat-form-field>
         <input matInput placeholder="Post Title" [(ngModel)]="title">
     </mat-form-field>
@@ -17,5 +27,6 @@
         <textarea matInput placeholder="Post Content" [(ngModel)]="content" rows="10"></textarea>
     </mat-form-field>
     <mat-divider></mat-divider>
-    <button mat-raised-button color="accent" (click)="createPost()" [disabled]="!title || !content || !image">{{buttonText}}</button>
-</section>                                                  
+    <button mat-raised-button color="accent" (click)="createPost()"
+        [disabled]="!title || !content || !image || !favType">{{buttonText}}</button>
+</section>
