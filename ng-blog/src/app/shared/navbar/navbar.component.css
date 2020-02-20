@@ -20,6 +20,10 @@ button{
     flex-direction: row;
 }
 
+button:hover{
+    background-color: lightblue;
+}
+
 @media screen and (max-width: 650px) {
     .responsive-nav {
       display: flex;

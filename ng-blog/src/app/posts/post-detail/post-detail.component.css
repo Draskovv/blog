@@ -3,6 +3,10 @@ mat-card{
     max-width: 700px;
 }
 
+mat-card{
+    background-color: lightblue;
+}
+
 img{
     width: 100%;
 }
