@@ -1,12 +1,19 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-        <span routerLink="/blog">Danny's blog</span>
+        <span routerLink="/blog">Animal's blog</span>
         <span class="spacer"></span>
-        <div *ngIf="auth.afAuth.authState | async as user; else showLogin">
-            <button mat-raised-button color="accent" routerLink="/my-posts">My posts</button>
-            <button mat-raised-button color="accent" routerLink="/dashboard">Write a Post</button>
-            <button mat-raised-button color="accent" routerLink="/about">About</button>
-            <button mat-button (click)="auth.logout()">Logout</button>
+        <div class="responsive-nav" *ngIf="auth.afAuth.authState | async as user; else showLogin">
+            <div>
+                <button mat-raised-button color="accent" routerLink="/blog">All posts</button>
+                <button mat-raised-button color="accent" routerLink="/my-posts">My posts</button>
+            </div>
+            <div>
+                <button mat-raised-button color="accent" routerLink="/dashboard">Write a Post</button>
+                <button mat-raised-button color="accent" routerLink="/about">About</button>
+            </div>
+            <div class="auth">
+                <button mat-button (click)="auth.logout()">Logout</button>
+            </div>
         </div>
         <ng-template #showLogin>
             <button mat-button (click)="auth.login()">Login with Google</button>

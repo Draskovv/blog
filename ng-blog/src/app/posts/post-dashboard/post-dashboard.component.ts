@@ -12,7 +12,7 @@ import { AngularFireStorage } from 'angularfire2/storage';
 })
 export class PostDashboardComponent implements OnInit {
 
-  types: string[] = ['Dessert', 'Main', 'Salad'];
+  types: string[] = ['Dog', 'Cat', 'Fun fact'];
 
   title: string;
   image: string = null;

@@ -10,3 +10,7 @@ img{
 mat-form-field{
     width: 100%;
 }
+
+mat-card-content > p{
+    margin-top: 2em;
+}

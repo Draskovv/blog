@@ -10,3 +10,33 @@ span:focus {
 span{
     cursor: pointer;
 }
+
+button{
+    margin-left: 1em;
+}
+
+.responsive-nav{
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 650px) {
+    .responsive-nav {
+      display: flex;
+      flex-direction: column;
+    }
+
+    button{
+        margin-top:1em;
+    }
+
+    .auth{
+        text-align: right;
+    }
+
+    mat-toolbar-row{
+        height: 8em;
+    }
+  }
+
+ 
