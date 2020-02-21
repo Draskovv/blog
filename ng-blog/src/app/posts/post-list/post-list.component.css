@@ -26,3 +26,26 @@ mat-card-content:focus{
     outline: none;
     border: 0;
 }
+
+.filterDiv{
+    background-color: lightblue;
+    text-align: center;
+    height: 4em;
+}
+
+.radio-button{
+    padding-top: 0.5em;
+    padding-left: 1em;
+}
+
+.postType {
+    float: right;
+    color: grey;
+  }
+
+@media screen and (max-width: 400px) {
+    section {
+      width: 90%;
+      display: block;
+    }
+  }

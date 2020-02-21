@@ -13,11 +13,18 @@ import { AuthService } from '../../core/auth.service';
 export class PostListComponent implements OnInit {
 
   posts: Observable<Post[]>;
+
+  type: string;
   
   constructor(private postsService: PostService, public auth: AuthService) {}
 
   ngOnInit(): void {
     this.posts = this.postsService.getPosts();
+  }
+
+  getFilter(type:string)
+  {
+    this.posts = this.postsService.getFilteredPosts(type); 
   }
   
   delete(id: string)

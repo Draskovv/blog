@@ -20,6 +20,7 @@ export class PostService {
     }
 
     getPosts() {
+       
             return this.postsCollection.snapshotChanges().pipe(map(actions => {
                 return actions.map(a => {
                     const data = a.payload.doc.data() as Post
@@ -27,6 +28,33 @@ export class PostService {
                     return { id, ...data }
                 })
             }));
+        
+            
+    }
+
+    getFilteredPosts(type:string)
+    {
+        if(type !== 'all')
+        {
+            return this.postsCollection.snapshotChanges().pipe(map(actions => {
+                return actions.filter(a => a.payload.doc.data().type == type).map(a => {
+                    const data = a.payload.doc.data() as Post
+                    const id = a.payload.doc.id
+                    return { id, ...data }
+                })
+            }));
+        }
+        else
+        {
+            return this.postsCollection.snapshotChanges().pipe(map(actions => {
+                return actions.map(a => {
+                    const data = a.payload.doc.data() as Post
+                    const id = a.payload.doc.id
+                    return { id, ...data }
+                })
+            }));
+        }
+        
     }
 
     getMyPosts(){

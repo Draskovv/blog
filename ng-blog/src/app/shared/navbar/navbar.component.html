@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-        <span routerLink="/blog">Animal's blog</span>
+        <span class="title" routerLink="/blog">Animal's blog</span>
         <span class="spacer"></span>
         <div class="responsive-nav" *ngIf="auth.afAuth.authState | async as user; else showLogin">
             <div>

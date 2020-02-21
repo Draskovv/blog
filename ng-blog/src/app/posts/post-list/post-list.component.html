@@ -1,8 +1,19 @@
+<div class="filterDiv">
+    <label id="radio-group-label">Filter by type</label>
+    <mat-divider></mat-divider>
+    <mat-radio-group class="radio-group" [(ngModel)]="type">
+        <mat-radio-button class="radio-button" value="all" (click)="getFilter('all')">All</mat-radio-button>
+        <mat-radio-button class="radio-button" value="dog" (click)="getFilter('dog')">Dogs</mat-radio-button>
+        <mat-radio-button class="radio-button" value="cat" (click)="getFilter('cat')">Cats</mat-radio-button>
+        <mat-radio-button class="radio-button" value="fun-fact" (click)="getFilter('fun-fact')">Fun facts</mat-radio-button>
+    </mat-radio-group>
+</div>
 <section>
     <mat-card *ngFor="let post of posts | async" class="{{post.type}}">
         <mat-card-content routerLink="{{post.id}}">
             <img src="{{post.image}}" alt="{{post.title}}">
             <h2>{{post.title}}</h2>
+            <span class="postType">{{post.type}}</span>
             <p><small>Posted by {{post.author}} &bull; on {{post.published.toDate() | date: 'fullDate'}}</small></p>
         </mat-card-content>
         <mat-card-actions align="end" *ngIf="auth.currentUserId === post.authorId">

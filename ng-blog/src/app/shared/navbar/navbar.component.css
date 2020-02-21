@@ -41,6 +41,10 @@ button:hover{
     mat-toolbar-row{
         height: 8em;
     }
+
+    .title{
+        font-size: 17px;
+    }
   }
 
  
