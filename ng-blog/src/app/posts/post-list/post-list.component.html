@@ -2,7 +2,7 @@
     <label id="radio-group-label">Filter by type</label>
     <mat-divider></mat-divider>
     <mat-radio-group class="radio-group" [(ngModel)]="type">
-        <mat-radio-button class="radio-button" value="all" (click)="getFilter('all')">All</mat-radio-button>
+        <mat-radio-button class="radio-button" value="all" (click)="getFilter('all')" checked>All</mat-radio-button>
         <mat-radio-button class="radio-button" value="dog" (click)="getFilter('dog')">Dogs</mat-radio-button>
         <mat-radio-button class="radio-button" value="cat" (click)="getFilter('cat')">Cats</mat-radio-button>
         <mat-radio-button class="radio-button" value="fun-fact" (click)="getFilter('fun-fact')">Fun facts</mat-radio-button>
