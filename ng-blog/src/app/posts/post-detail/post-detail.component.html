@@ -1,6 +1,8 @@
 <ng-container *ngIf="post">
 <div [hidden]="!editing">
     <mat-card>
+        <img src="{{post.image}}" alt="{{post.title}}">
+        <p>posted by {{post.author}} &bull; {{post.published}}</p>
         <h2>Update Post</h2>
     
     <mat-form-field>
